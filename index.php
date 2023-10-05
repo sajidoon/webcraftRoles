@@ -6,4 +6,9 @@ Version: 1.0
 Author: webcraft.pk
 */
 
+define("PTSC_URL", untrailingslashit(plugins_url(basename(dirname(__FILE__)))));
+
 include_once "class_install.php";
+
+global $ins;
+$ins = new ptsc_install();

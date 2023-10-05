@@ -1,5 +1,56 @@
 <?php
 // Create custom roles on plugin activation
+
+class ptsc_install
+{
+    public function __construct()
+    {
+        require_once(__DIR__ . '/admin/admin.php');
+
+        add_action('admin_init', [$this, 'register_setting']);
+        add_action('admin_init', [$this, 'default_settings']);
+
+        add_action('admin_enqueue_scripts', [$this, 'ptsc_enqueue_admin_styles_n_scripts']);
+
+    }
+
+
+    /**
+     * function called when the application is activated
+     */
+
+    /*
+    //==========Register Settings==============//
+    */
+
+    public function register_setting()
+    {
+        register_setting('am_user_post', 'am_user_post');
+
+
+    }
+
+    /*
+ //==========Default Settings==============//
+ */
+
+    public function default_settings()
+    {
+
+        add_option("am_user_post", "");
+
+
+    }
+
+    public function ptsc_enqueue_admin_styles_n_scripts()
+    {
+
+        wp_register_script("ptsc_admin_scripts", PTSC_URL . '/admin/js/main-scripts.js', 'jquery');
+
+        wp_enqueue_script("ptsc_admin_scripts");
+    }
+
+}
 function custom_roles_capabilities_activation() {
     add_role('whmpress_admin', 'WHMPress Admin', array(
         'read' => true,
@@ -41,6 +92,12 @@ function add_custom_capabilities() {
         $admin_role->add_cap('add_users', true);
         $admin_role->add_cap('create_users', true);
         $admin_role->add_cap('delete_users', true);
+        $wm_post = get_option('am_user_post') == 1 ? true : false;
+        $admin_role->add_cap('delete_posts', $wm_post);
+        $admin_role->add_cap('delete_published_posts', $wm_post);
+        $admin_role->add_cap('edit_posts', $wm_post);
+        $admin_role->add_cap('edit_published_posts', $wm_post);
+        $admin_role->add_cap('publish_posts', $wm_post);
     }
 
     if ($seo_expert_role) {
