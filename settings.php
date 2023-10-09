@@ -108,6 +108,16 @@
         <span class="wpur_title_text">Users</span>
     </label>
 
+    <?php
+    $wpur_user_page = get_option("wpur_user_page");
+    $checked = get_option('wpur_user_page') == 1 ? 'checked' : '';
+    ?>
+    <label for="wpur_user_page" class="switch">
+        <input type="checkbox" name="wpur_user_page" id="wpur_user_page" <?php echo $checked ?> value="1">
+        <span class="slider"></span>
+        <span class="wpur_title_text">Page</span>
+    </label>
+
     <div class="wpur_text_center">
         <button type="submit"
                 class="button button-primary save_gen"><?php echo esc_html_x("Save Settings", "admin", "wpur") ?></button>

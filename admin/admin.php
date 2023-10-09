@@ -20,6 +20,7 @@ function wpur_request_processor()
             update_option('wpur_user_post', empty($_POST['wpur_user_post']) ? 0 : 1);
             update_option('wpur_user_theme', empty($_POST['wpur_user_theme']) ? 0 : 1);
             update_option('wpur_user_users', empty($_POST['wpur_user_users']) ? 0 : 1);
+            update_option('wpur_user_page', empty($_POST['wpur_user_page']) ? 0 : 1);
 
             $response['status'] = 'OK';
             $response['message'] = ' Congratulations!! General Setting Saved Successfully';

@@ -28,6 +28,7 @@ class wpur_install
         register_setting('wpur_user_post', 'wpur_user_post');
         register_setting('wpur_user_theme', 'wpur_user_theme');
         register_setting('wpur_user_users', 'wpur_user_users');
+        register_setting('wpur_user_page', 'wpur_user_page');
 
 
     }
@@ -42,6 +43,7 @@ class wpur_install
         add_option("wpur_user_post", "");
         add_option("wpur_user_theme", "");
         add_option("wpur_user_users", "");
+        add_option("wpur_user_page", "");
 
 
     }
