@@ -29,6 +29,13 @@ class wpur_install
         register_setting('wpur_user_theme', 'wpur_user_theme');
         register_setting('wpur_user_users', 'wpur_user_users');
         register_setting('wpur_user_page', 'wpur_user_page');
+        register_setting('wpur_user_page', 'wpur_user_media');
+        register_setting('wpur_user_customize', 'wpur_user_customize');
+        register_setting('wpur_user_widgets', 'wpur_user_widgets');
+        register_setting('wpur_user_menus', 'wpur_user_menus');
+        register_setting('wpur_user_theme_file_editor', 'wpur_user_theme_file_editor');
+        register_setting('wpur_user_plugin', 'wpur_user_plugin');
+        register_setting('wpur_user_setting', 'wpur_user_setting');
 
 
     }
@@ -44,6 +51,13 @@ class wpur_install
         add_option("wpur_user_theme", "");
         add_option("wpur_user_users", "");
         add_option("wpur_user_page", "");
+        add_option("wpur_user_media", "");
+        add_option("wpur_user_customize", "");
+        add_option("wpur_user_widgets", "");
+        add_option("wpur_user_menus", "");
+        add_option("wpur_user_theme_file_editor", "");
+        add_option("wpur_user_plugin", "");
+        add_option("wpur_user_setting", "");
 
 
     }
