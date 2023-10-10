@@ -18,14 +18,18 @@ function wpur_request_processor()
         //~~ Save admin settings Area
         case "save_general_settings":
             update_option('wpur_user_post', empty($_POST['wpur_user_post']) ? 0 : 1);
+            update_option('wpur_user_post_edit', empty($_POST['wpur_user_post_edit']) ? 0 : 1);
+            update_option('wpur_user_post_delete', empty($_POST['wpur_user_post_delete']) ? 0 : 1);
+            update_option('wpur_user_post_edit_others', empty($_POST['wpur_user_post_edit_others']) ? 0 : 1);
+            update_option('wpur_user_post_delete_others', empty($_POST['wpur_user_post_delete_others']) ? 0 : 1);
             update_option('wpur_user_theme', empty($_POST['wpur_user_theme']) ? 0 : 1);
             update_option('wpur_user_users', empty($_POST['wpur_user_users']) ? 0 : 1);
+            update_option('wpur_user_page_edit', empty($_POST['wpur_user_page_edit']) ? 0 : 1);
+            update_option('wpur_user_page_delete', empty($_POST['wpur_user_page_delete']) ? 0 : 1);
+            update_option('wpur_user_page_edit_other', empty($_POST['wpur_user_page_edit_other']) ? 0 : 1);
+            update_option('wpur_user_page_delete_other', empty($_POST['wpur_user_page_delete_other']) ? 0 : 1);
             update_option('wpur_user_page', empty($_POST['wpur_user_page']) ? 0 : 1);
             update_option('wpur_user_media', empty($_POST['wpur_user_media']) ? 0 : 1);
-            update_option('wpur_user_customize', empty($_POST['wpur_user_customize']) ? 0 : 1);
-            update_option('wpur_user_widgets', empty($_POST['wpur_user_widgets']) ? 0 : 1);
-            update_option('wpur_user_menus', empty($_POST['wpur_user_menus']) ? 0 : 1);
-            update_option('wpur_user_theme_file_editor', empty($_POST['wpur_user_theme_file_editor']) ? 0 : 1);
             update_option('wpur_user_plugin', empty($_POST['wpur_user_plugin']) ? 0 : 1);
             update_option('wpur_user_setting', empty($_POST['wpur_user_setting']) ? 0 : 1);
 
