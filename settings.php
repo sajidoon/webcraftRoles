@@ -252,37 +252,6 @@
         </div>
     </div>
     <?php
-    $wpur_user_page_delete = get_option("wpur_user_page_delete");
-    $checked = get_option('wpur_user_page_delete') == 1 ? 'checked' : '';
-    ?>
-    <label for="wpur_user_page_delete" class="switch">
-        <input type="checkbox" name="wpur_user_page_delete" id="wpur_user_page_delete" <?php echo $checked ?> value="1">
-        <span class="slider"></span>
-        <span class="wpur_title_text">Delete Page</span>
-    </label>
-    <?php
-    $wpur_user_page_edit_other = get_option("wpur_user_page_edit_other");
-    $checked = get_option('wpur_user_page_edit_other') == 1 ? 'checked' : '';
-    ?>
-    <label for="wpur_user_page_edit_other" class="switch">
-        <input type="checkbox" name="wpur_user_page_edit_other" id="wpur_user_page_edit_other" <?php echo $checked ?>
-               value="1">
-        <span class="slider"></span>
-        <span class="wpur_title_text">edit Other Page</span>
-    </label>
-    <?php
-    $wpur_user_page_delete_other = get_option("wpur_user_page_delete_other");
-    $checked = get_option('wpur_user_page_delete_other') == 1 ? 'checked' : '';
-    ?>
-    <label for="wpur_user_page_delete_other" class="switch">
-        <input type="checkbox" name="wpur_user_page_delete_other"
-               id="wpur_user_page_delete_other" <?php echo $checked ?> value="1">
-        <span class="slider"></span>
-        <span class="wpur_title_text">Delete other Page</span>
-    </label>
-
-
-    <?php
     $wpur_user_theme = get_option("wpur_user_theme");
     $checked = get_option('wpur_user_theme') == 1 ? 'checked' : '';
     ?>
@@ -347,8 +316,8 @@
 
     <h1>Seo</h1>
 
-    <div class="wpur_row_main_seo">
-        <div class="wpur_col_seo">
+    <div class="wpur_row_main">
+        <div class="wpur_col">
             <?php
             $wpur_user_post_seo = get_option("wpur_user_post_seo") == 1 ? 1 : 0;
             $checked = get_option('wpur_user_post_seo') == 1 ? 'checked' : '';
@@ -356,7 +325,7 @@
             <label for="wpur_user_post_seo" class="switch">
                 <input type="checkbox" name="wpur_user_post_seo" id="wpur_user_post_seo" <?php echo $checked ?> value="1">
                 <span class="slider"></span>
-                <span class="wpur_title_text_seo">post</span>
+                <span class="wpur_title_text">post</span>
             </label>
             <input type="hidden" class="wpur_post_user_option_seo" value="<?php echo $wpur_user_post_seo ?>">
             <div class="wpur_post_other_option_seo">
@@ -366,7 +335,7 @@
                 <label for="wpur_user_post_edit_seo" class="switch">
                     <input type="checkbox" name="wpur_user_post_edit_seo" id="wpur_user_post_edit_seo" <?php echo $checked ?> value="1">
                     <span class="slider"></span>
-                    <span class="wpur_title_text_seo">Edit Post</span>
+                    <span class="wpur_title_text">Edit Post</span>
                 </label>
                 <?php
                 $checked = get_option('wpur_user_post_delete_seo') == 1 ? 'checked' : '';
@@ -375,7 +344,7 @@
                     <input type="checkbox" name="wpur_user_post_delete_seo" id="wpur_user_post_delete_seo" <?php echo $checked ?>
                            value="1">
                     <span class="slider"></span>
-                    <span class="wpur_title_text_seo">Delete Post</span>
+                    <span class="wpur_title_text">Delete Post</span>
                 </label>
                 <?php
                 $checked = get_option('wpur_user_post_edit_others_seo') == 1 ? 'checked' : '';
@@ -384,7 +353,7 @@
                     <input type="checkbox" name="wpur_user_post_edit_others_seo"
                            id="wpur_user_post_edit_others_seo" <?php echo $checked ?> value="1">
                     <span class="slider"></span>
-                    <span class="wpur_title_text_seo">Edit other post</span>
+                    <span class="wpur_title_text">Edit other post</span>
                 </label>
                 <?php
                 $checked = get_option('wpur_user_post_delete_others_seo') == 1 ? 'checked' : '';
@@ -393,7 +362,7 @@
                     <input type="checkbox" name="wpur_user_post_delete_others_seo"
                            id="wpur_user_post_delete_others_seo" <?php echo $checked ?> value="1">
                     <span class="slider"></span>
-                    <span class="wpur_title_text_seo">Delete other post</span>
+                    <span class="wpur_title_text">Delete other post</span>
                 </label>
             </div>
         </div>
@@ -405,7 +374,7 @@
             <label for="wpur_user_page_seo" class="switch">
                 <input type="checkbox" name="wpur_user_page_seo" id="wpur_user_page_seo" <?php echo $checked ?> value="1">
                 <span class="slider"></span>
-                <span class="wpur_title_text_seo">Page</span>
+                <span class="wpur_title_text">Page</span>
             </label>
             <input type="hidden" class="wpur_page_user_option_seo" value="<?php echo $wpur_user_page_seo ?>">
             <div class="wpur_page_other_option_seo">
@@ -415,7 +384,7 @@
                 <label for="wpur_user_page_edit_seo" class="switch">
                     <input type="checkbox" name="wpur_user_page_edit_seo" id="wpur_user_page_edit_seo" <?php echo $checked ?> value="1">
                     <span class="slider"></span>
-                    <span class="wpur_title_text_seo">Edit Page</span>
+                    <span class="wpur_title_text">Edit Page</span>
                 </label>
                 <?php
                 $checked = get_option('wpur_user_page_delete_seo') == 1 ? 'checked' : '';
@@ -424,7 +393,7 @@
                     <input type="checkbox" name="wpur_user_page_delete_seo" id="wpur_user_page_delete_seo" <?php echo $checked ?>
                            value="1">
                     <span class="slider"></span>
-                    <span class="wpur_title_text_seo">Delete Post</span>
+                    <span class="wpur_title_text">Delete Post</span>
                 </label>
                 <?php
                 $checked = get_option('wpur_user_page_edit_others_seo') == 1 ? 'checked' : '';
@@ -433,7 +402,7 @@
                     <input type="checkbox" name="wpur_user_page_edit_others_seo"
                            id="wpur_user_page_edit_others_seo" <?php echo $checked ?> value="1">
                     <span class="slider"></span>
-                    <span class="wpur_title_text_seo">Edit other page</span>
+                    <span class="wpur_title_text">Edit other page</span>
                 </label>
                 <?php
                 $checked = get_option('wpur_user_page_delete_others_seo') == 1 ? 'checked' : '';
@@ -442,41 +411,11 @@
                     <input type="checkbox" name="wpur_user_page_delete_others_seo"
                            id="wpur_user_page_delete_others_seo" <?php echo $checked ?> value="1">
                     <span class="slider"></span>
-                    <span class="wpur_title_text_seo">Delete other post</span>
+                    <span class="wpur_title_text">Delete other post</span>
                 </label>
             </div>
         </div>
     </div>
-    <?php
-    $wpur_user_page_delete_seo = get_option("wpur_user_page_delete_seo");
-    $checked = get_option('wpur_user_page_delete_seo') == 1 ? 'checked' : '';
-    ?>
-    <label for="wpur_user_page_delete" class="switch">
-        <input type="checkbox" name="wpur_user_page_delete_seo" id="wpur_user_page_delete_seo" <?php echo $checked ?> value="1">
-        <span class="slider"></span>
-        <span class="wpur_title_text_seo">Delete Page</span>
-    </label>
-    <?php
-    $wpur_user_page_edit_other_seo = get_option("wpur_user_page_edit_other_seo");
-    $checked = get_option('wpur_user_page_edit_other_seo') == 1 ? 'checked' : '';
-    ?>
-    <label for="wpur_user_page_edit_other" class="switch">
-        <input type="checkbox" name="wpur_user_page_edit_other_seo" id="wpur_user_page_edit_other_seo" <?php echo $checked ?>
-               value="1">
-        <span class="slider"></span>
-        <span class="wpur_title_text_seo">edit Other Page</span>
-    </label>
-    <?php
-    $wpur_user_page_delete_other_seo = get_option("wpur_user_page_delete_other_seo");
-    $checked = get_option('wpur_user_page_delete_other_seo') == 1 ? 'checked' : '';
-    ?>
-    <label for="wpur_user_page_delete_other_seo" class="switch">
-        <input type="checkbox" name="wpur_user_page_delete_other_seo"
-               id="wpur_user_page_delete_other_seo" <?php echo $checked ?> value="1">
-        <span class="slider"></span>
-        <span class="wpur_title_text_seo">Delete other Page</span>
-    </label>
-
 
     <?php
     $wpur_user_theme_seo = get_option("wpur_user_theme_seo");
@@ -485,7 +424,7 @@
     <label for="wpur_user_theme_seo" class="switch">
         <input type="checkbox" name="wpur_user_theme_seo" id="wpur_user_theme_seo" <?php echo $checked ?> value="1">
         <span class="slider"></span>
-        <span class="wpur_title_text_seo">Theme</span>
+        <span class="wpur_title_text">Theme</span>
     </label>
     <?php
     $wpur_user_users_seo = get_option("wpur_user_users_seo");
@@ -494,7 +433,7 @@
     <label for="wpur_user_users_seo" class="switch">
         <input type="checkbox" name="wpur_user_users_seo" id="wpur_user_users_seo" <?php echo $checked ?> value="1">
         <span class="slider"></span>
-        <span class="wpur_title_text_seo">Users</span>
+        <span class="wpur_title_text">Users</span>
     </label>
 
 
@@ -505,7 +444,7 @@
     <label for="wpur_user_media_seo" class="switch">
         <input type="checkbox" name="wpur_user_media_seo" id="wpur_user_media_seo" <?php echo $checked ?> value="1">
         <span class="slider"></span>
-        <span class="wpur_title_text_seo">Media</span>
+        <span class="wpur_title_text">Media</span>
     </label>
 
 
@@ -516,7 +455,7 @@
     <label for="wpur_user_plugin_seo" class="switch">
         <input type="checkbox" name="wpur_user_plugin_seo" id="wpur_user_plugin_seo" <?php echo $checked ?> value="1">
         <span class="slider"></span>
-        <span class="wpur_title_text_seo">Plugin</span>
+        <span class="wpur_title_text">Plugin</span>
     </label>
 
     <?php
@@ -526,7 +465,7 @@
     <label for="wpur_user_setting_seo" class="switch">
         <input type="checkbox" name="wpur_user_setting_seo" id="wpur_user_setting_seo" <?php echo $checked ?> value="1">
         <span class="slider"></span>
-        <span class="wpur_title_text_seo">Setting</span>
+        <span class="wpur_title_text">Setting</span>
     </label>
 
     <div class="wpur_text_center_seo">
