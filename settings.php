@@ -132,6 +132,23 @@
     }
 
 
+    .wpur_main_setting .wpur_post_other_option_j_editor.post_option_active {
+        cursor: not-allowed;
+    }
+    .wpur_main_setting .wpur_post_other_option_j_editor.post_option_active .switch {
+        pointer-events: none;
+        filter: grayscale(1);
+    }
+
+    .wpur_main_setting .wpur_page_other_option_j_editor.page_option_active {
+        cursor: not-allowed;
+    }
+    .wpur_main_setting .wpur_page_other_option_j_editor.page_option_active .switch {
+        pointer-events: none;
+        filter: grayscale(1);
+    }
+
+
     .wpur_row_main{
         display: flex;
     }
@@ -146,6 +163,8 @@
 <p>This is a custom menu page accessible to Editors.</p>
 
 <div class="wpur_main_setting">
+
+<!-- For WHMPRESS admin-->
 <form action="" method="post" class="wpur_general_settings">
     <div class="settings_response"></div>
 
@@ -309,7 +328,7 @@
 
 </form>
 
-
+<!--For Seo admin-->
 
 <form action="" method="post" class="wpur_general_settings_seo">
     <div class="settings_response_seo"></div>
@@ -475,6 +494,172 @@
 
 </form>
 
+
+<!-- For Junior admin -->
+
+
+    <form action="" method="post" class="wpur_general_settings_j_editor">
+        <div class="settings_response"></div>
+
+        <h1>Junior Editor</h1>
+
+        <div class="wpur_row_main">
+            <div class="wpur_col">
+                <?php
+                $wpur_user_post_j_editor = get_option("wpur_user_post_j_editor") == 1 ? 1 : 0;
+                $checked = get_option('wpur_user_post_j_editor') == 1 ? 'checked' : '';
+                ?>
+                <label for="wpur_user_post_j_editor" class="switch">
+                    <input type="checkbox" name="wpur_user_post_j_editor" id="wpur_user_post_j_editor" <?php echo $checked ?> value="1">
+                    <span class="slider"></span>
+                    <span class="wpur_title_text">post</span>
+                </label>
+                <input type="hidden" class="wpur_post_user_option_j_editor" value="<?php echo $wpur_user_post_j_editor ?>">
+                <div class="wpur_post_other_option_j_editor">
+                    <?php
+                    $checked = get_option('wpur_user_post_edit_j_editor') == 1 ? 'checked' : '';
+                    ?>
+                    <label for="wpur_user_post_edit_j_editor" class="switch">
+                        <input type="checkbox" name="wpur_user_post_edit_j_editor" id="wpur_user_post_edit_j_editor" <?php echo $checked ?> value="1">
+                        <span class="slider"></span>
+                        <span class="wpur_title_text">Edit Post</span>
+                    </label>
+                    <?php
+                    $checked = get_option('wpur_user_post_delete_j_editor') == 1 ? 'checked' : '';
+                    ?>
+                    <label for="wpur_user_post_delete_j_editor" class="switch">
+                        <input type="checkbox" name="wpur_user_post_delete_j_editor" id="wpur_user_post_delete_j_editor" <?php echo $checked ?>
+                               value="1">
+                        <span class="slider"></span>
+                        <span class="wpur_title_text">Delete Post</span>
+                    </label>
+                    <?php
+                    $checked = get_option('wpur_user_post_edit_others_j_editor') == 1 ? 'checked' : '';
+                    ?>
+                    <label for="wpur_user_post_edit_others_j_editor" class="switch">
+                        <input type="checkbox" name="wpur_user_post_edit_others_j_editor"
+                               id="wpur_user_post_edit_others_j_editor" <?php echo $checked ?> value="1">
+                        <span class="slider"></span>
+                        <span class="wpur_title_text">Edit other post</span>
+                    </label>
+                    <?php
+                    $checked = get_option('wpur_user_post_delete_others_j_editor') == 1 ? 'checked' : '';
+                    ?>
+                    <label for="wpur_user_post_delete_others_j_editor" class="switch">
+                        <input type="checkbox" name="wpur_user_post_delete_others_j_editor"
+                               id="wpur_user_post_delete_others_j_editor" <?php echo $checked ?> value="1">
+                        <span class="slider"></span>
+                        <span class="wpur_title_text">Delete other post</span>
+                    </label>
+                </div>
+            </div>
+            <div class="wpur_col">
+                <?php
+                $wpur_user_page_j_editor = get_option("wpur_user_page_j_editor") == 1 ? 1 : 0;;
+                $checked = get_option('wpur_user_page_j_editor') == 1 ? 'checked' : '';
+                ?>
+                <label for="wpur_user_page_j_editor" class="switch">
+                    <input type="checkbox" name="wpur_user_page_j_editor" id="wpur_user_page_j_editor" <?php echo $checked ?> value="1">
+                    <span class="slider"></span>
+                    <span class="wpur_title_text">Page</span>
+                </label>
+                <input type="hidden" class="wpur_page_user_option_j_editor" value="<?php echo $wpur_user_page_j_editor ?>">
+                <div class="wpur_page_other_option_j_editor">
+                    <?php
+                    $checked = get_option('wpur_user_page_edit_j_editor') == 1 ? 'checked' : '';
+                    ?>
+                    <label for="wpur_user_page_edit_j_editor" class="switch">
+                        <input type="checkbox" name="wpur_user_page_edit_j_editor" id="wpur_user_page_edit_j_editor" <?php echo $checked ?> value="1">
+                        <span class="slider"></span>
+                        <span class="wpur_title_text">Edit Page</span>
+                    </label>
+                    <?php
+                    $checked = get_option('wpur_user_page_delete_j_editor') == 1 ? 'checked' : '';
+                    ?>
+                    <label for="wpur_user_page_delete_j_editor" class="switch">
+                        <input type="checkbox" name="wpur_user_page_delete_j_editor" id="wpur_user_page_delete_j_editor" <?php echo $checked ?>
+                               value="1">
+                        <span class="slider"></span>
+                        <span class="wpur_title_text">Delete Post</span>
+                    </label>
+                    <?php
+                    $checked = get_option('wpur_user_page_edit_others_j_editor') == 1 ? 'checked' : '';
+                    ?>
+                    <label for="wpur_user_page_edit_others_j_editor" class="switch">
+                        <input type="checkbox" name="wpur_user_page_edit_others_j_editor"
+                               id="wpur_user_page_edit_others_j_editor" <?php echo $checked ?> value="1">
+                        <span class="slider"></span>
+                        <span class="wpur_title_text">Edit other page</span>
+                    </label>
+                    <?php
+                    $checked = get_option('wpur_user_page_delete_others_j_editor') == 1 ? 'checked' : '';
+                    ?>
+                    <label for="wpur_user_page_delete_others_j_editor" class="switch">
+                        <input type="checkbox" name="wpur_user_page_delete_others_j_editor"
+                               id="wpur_user_page_delete_others_j_editor" <?php echo $checked ?> value="1">
+                        <span class="slider"></span>
+                        <span class="wpur_title_text">Delete other post</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <?php
+        $wpur_user_theme_j_editor = get_option("wpur_user_theme_j_editor");
+        $checked = get_option('wpur_user_theme_j_editor') == 1 ? 'checked' : '';
+        ?>
+        <label for="wpur_user_theme_j_editor" class="switch">
+            <input type="checkbox" name="wpur_user_theme_j_editor" id="wpur_user_theme_j_editor" <?php echo $checked ?> value="1">
+            <span class="slider"></span>
+            <span class="wpur_title_text">Theme</span>
+        </label>
+        <?php
+        $wpur_user_users_j_editor = get_option("wpur_user_users_j_editor");
+        $checked = get_option('wpur_user_users_j_editor') == 1 ? 'checked' : '';
+        ?>
+        <label for="wpur_user_users_j_editor" class="switch">
+            <input type="checkbox" name="wpur_user_users_j_editor" id="wpur_user_users_j_editor" <?php echo $checked ?> value="1">
+            <span class="slider"></span>
+            <span class="wpur_title_text">Users</span>
+        </label>
+
+
+        <?php
+        $wpur_user_media_j_editor = get_option("wpur_user_media_j_editor");
+        $checked = get_option('wpur_user_media_j_editor') == 1 ? 'checked' : '';
+        ?>
+        <label for="wpur_user_media_j_editor" class="switch">
+            <input type="checkbox" name="wpur_user_media_j_editor" id="wpur_user_media_j_editor" <?php echo $checked ?> value="1">
+            <span class="slider"></span>
+            <span class="wpur_title_text">Media</span>
+        </label>
+
+
+        <?php
+        $wpur_user_plugin_j_editor = get_option("wpur_user_plugin_j_editor");
+        $checked = get_option('wpur_user_plugin_j_editor') == 1 ? 'checked' : '';
+        ?>
+        <label for="wpur_user_plugin_j_editor" class="switch">
+            <input type="checkbox" name="wpur_user_plugin_j_editor" id="wpur_user_plugin_j_editor" <?php echo $checked ?> value="1">
+            <span class="slider"></span>
+            <span class="wpur_title_text">Plugin</span>
+        </label>
+
+        <?php
+        $wpur_user_setting_j_editor = get_option("wpur_user_setting_j_editor");
+        $checked = get_option('wpur_user_setting_j_editor') == 1 ? 'checked' : '';
+        ?>
+        <label for="wpur_user_setting_j_editor" class="switch">
+            <input type="checkbox" name="wpur_user_setting_j_editor" id="wpur_user_setting_j_editor" <?php echo $checked ?> value="1">
+            <span class="slider"></span>
+            <span class="wpur_title_text">Setting</span>
+        </label>
+
+        <div class="wpur_text_center">
+            <button type="submit"
+                    class="button button-primary save_gen"><?php echo esc_html_x("Save Settings", "admin", "wpur") ?></button>
+        </div>
+
+    </form>
 </div>
 
 

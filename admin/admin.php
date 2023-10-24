@@ -58,6 +58,29 @@ function wpur_request_processor()
             $response['status'] = 'OK';
             $response['message'] = ' Congratulations!! General Setting Saved Successfully';
             break;
+
+        //~~ Save admin settings Area
+        case "save_general_settings_j_editor":
+            update_option('wpur_user_post_j_editor', empty($_POST['wpur_user_post_j_editor']) ? 0 : 1);
+            update_option('wpur_user_post_edit_j_editor', empty($_POST['wpur_user_post_edit_j_editor']) ? 0 : 1);
+            update_option('wpur_user_post_delete_j_editor', empty($_POST['wpur_user_post_delete_j_editor']) ? 0 : 1);
+            update_option('wpur_user_post_edit_others_j_editor', empty($_POST['wpur_user_post_edit_others_j_editor']) ? 0 : 1);
+            update_option('wpur_user_post_delete_others_j_editor', empty($_POST['wpur_user_post_delete_others_j_editor']) ? 0 : 1);
+            update_option('wpur_user_theme_j_editor', empty($_POST['wpur_user_theme_j_editor']) ? 0 : 1);
+            update_option('wpur_user_users_j_editor', empty($_POST['wpur_user_users_j_editor']) ? 0 : 1);
+            update_option('wpur_user_page_edit_j_editor', empty($_POST['wpur_user_page_edit_j_editor']) ? 0 : 1);
+            update_option('wpur_user_page_delete_j_editor', empty($_POST['wpur_user_page_delete_j_editor']) ? 0 : 1);
+            update_option('wpur_user_page_edit_others_j_editor', empty($_POST['wpur_user_page_edit_others_j_editor']) ? 0 : 1);
+            update_option('wpur_user_page_delete_others_j_editor', empty($_POST['wpur_user_page_delete_others_j_editor']) ? 0 : 1);
+            update_option('wpur_user_page_j_editor', empty($_POST['wpur_user_page_j_editor_j_editor']) ? 0 : 1);
+            update_option('wpur_user_media_j_editor', empty($_POST['wpur_user_media_j_editor']) ? 0 : 1);
+            update_option('wpur_user_plugin_j_editor', empty($_POST['wpur_user_plugin_j_editor']) ? 0 : 1);
+            update_option('wpur_user_setting_j_editor', empty($_POST['wpur_user_setting_j_editor']) ? 0 : 1);
+
+            $response['status'] = 'OK';
+            $response['message'] = ' Congratulations!! General Setting Saved Successfully';
+            break;
+
         default:
             $response['message'] = ' Something went wrong. Please try again later';
             $response['status'] = "Error";

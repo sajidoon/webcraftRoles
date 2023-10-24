@@ -42,9 +42,6 @@ class wpur_install
         register_setting('wpur_user_setting', 'wpur_user_setting');
 
 
-
-
-
 //SA ~~ for seo
 
         register_setting('wpur_user_post_seo', 'wpur_user_post_seo');
@@ -62,6 +59,24 @@ class wpur_install
         register_setting('wpur_user_media_seo', 'wpur_user_media_seo');
         register_setting('wpur_user_plugin_seo', 'wpur_user_plugin_seo');
         register_setting('wpur_user_setting_seo', 'wpur_user_setting_seo');
+
+//Sa ~~~ j-editor
+
+        register_setting('wpur_user_post_j_editor', 'wpur_user_post_j_editor');
+        register_setting('wpur_user_post_edit_j_editor', 'wpur_user_post_edit_j_editor');
+        register_setting('wpur_user_post_delete_j_editor', 'wpur_user_post_delete_j_editor');
+        register_setting('wpur_user_post_edit_others_j_editor', 'wpur_user_post_edit_others_j_editor');
+        register_setting('wpur_user_post_delete_others_j_editor', 'wpur_user_post_delete_others_j_editor');
+        register_setting('wpur_user_theme_j_editor', 'wpur_user_theme_j_editor');
+        register_setting('wpur_user_users_j_editor', 'wpur_user_users_j_editor');
+        register_setting('wpur_user_page_j_editor', 'wpur_user_page_j_editor');
+        register_setting('wpur_user_page_edit_j_editor', 'wpur_user_page_edit_j_editor');
+        register_setting('wpur_user_page_delete_j_editor', 'wpur_user_page_delete_j_editor');
+        register_setting('wpur_user_page_edit_others_j_editor', 'wpur_user_page_edit_others_j_editor');
+        register_setting('wpur_user_page_delete_others_j_editor', 'wpur_user_page_delete_others_j_editor');
+        register_setting('wpur_user_media_j_editor', 'wpur_user_media_j_editor');
+        register_setting('wpur_user_plugin_j_editor', 'wpur_user_plugin_j_editor');
+        register_setting('wpur_user_setting_j_editor', 'wpur_user_setting_j_editor');
 
 
     }
@@ -107,7 +122,24 @@ class wpur_install
         add_option("wpur_user_plugin_seo", "");
         add_option("wpur_user_setting_seo", "");
 
+//Sa ~~ j-editor
 
+
+        add_option("wpur_user_post_j_editor", "");
+        add_option("wpur_user_post_edit_j_editor", "");
+        add_option("wpur_user_post_delete_j_editor", "");
+        add_option("wpur_user_post_edit_others_j_editor", "");
+        add_option("wpur_user_post_delete_others_j_editor", "");
+        add_option("wpur_user_theme_j_editor", "");
+        add_option("wpur_user_users_j_editor", "");
+        add_option("wpur_user_page_j_editor", "");
+        add_option("wpur_user_page_edit_j_editor", "");
+        add_option("wpur_user_page_delete_j_editor", "");
+        add_option("wpur_user_page_edit_others_j_editor", "");
+        add_option("wpur_user_page_delete_others_j_editor", "");
+        add_option("wpur_user_media_j_editor", "");
+        add_option("wpur_user_plugin_j_editor", "");
+        add_option("wpur_user_setting_j_editor", "");
 
 
 
@@ -135,6 +167,11 @@ function custom_roles_capabilities_activation()
         'read' => true,
         'level_0' => true,
     ));
+
+    add_role('whmpress_junior_editor', 'WHMPress Junior Editor ', array(
+        'read' => true,
+        'level_0' => true,
+    ));
 }
 
 register_activation_hook(__FILE__, 'custom_roles_capabilities_activation');
@@ -144,6 +181,8 @@ function custom_roles_capabilities_deactivation()
 {
     remove_role('whmpress_admin');
     remove_role('whmpress_seo');
+    remove_role('whmpress_junior_editor');
+
 }
 
 register_deactivation_hook(__FILE__, 'custom_roles_capabilities_deactivation');
@@ -154,6 +193,7 @@ function add_custom_capabilities()
     // Get the roles
     $admin_role = get_role('whmpress_admin');
     $seo_expert_role = get_role('whmpress_seo');
+    $junior_editor_role = get_role('whmpress_junior_editor');
 
     // Add custom capabilities to the roles
     if ($admin_role) {
@@ -285,6 +325,73 @@ function add_custom_capabilities()
 
         $wpur_setting_seo = get_option('wpur_user_setting_seo') == 1;
         $seo_expert_role->add_cap('manage_options', $wpur_setting_seo);
+    }
+
+    if ($junior_editor_role) {
+        $wpur_theme_j_editor = get_option('wpur_user_theme_j_editor') == 1;
+        $junior_editor_role->add_cap('switch_themes', $wpur_theme_j_editor);
+        $junior_editor_role->add_cap('install_themes', $wpur_theme_j_editor);
+        $junior_editor_role->add_cap('edit_theme_options', $wpur_theme_j_editor);
+        $junior_editor_role->add_cap('edit_themes', $wpur_theme_j_editor);
+        $junior_editor_role->add_cap('manage_network_themes', $wpur_theme_j_editor);
+        $junior_editor_role->add_cap('upload_themes', $wpur_theme_j_editor);
+        $junior_editor_role->add_cap('delete_themes', $wpur_theme_j_editor);
+        $junior_editor_role->add_cap('update_themes', $wpur_theme_j_editor);
+
+        $wpur_users_j_editor = get_option('wpur_user_users_j_editor') == 1;
+        $junior_editor_role->add_cap('list_users', $wpur_users_j_editor);
+        $junior_editor_role->add_cap('edit_users', $wpur_users_j_editor);
+        $junior_editor_role->add_cap('add_users', $wpur_users_j_editor);
+        $junior_editor_role->add_cap('create_users', $wpur_users_j_editor);
+        $junior_editor_role->add_cap('delete_users', $wpur_users_j_editor);
+
+        $wpur_post_j_editor = get_option('wpur_user_post_j_editor') == 1;
+        $junior_editor_role->add_cap('edit_posts',  $wpur_post_j_editor);
+        $junior_editor_role->add_cap('publish_posts',  $wpur_post_j_editor);
+        $junior_editor_role->add_cap('delete_private_posts',  $wpur_post_j_editor);
+        $junior_editor_role->add_cap('edit_private_posts',  $wpur_post_j_editor);
+        $junior_editor_role->add_cap('read_private_posts',  $wpur_post_j_editor);
+        $junior_editor_role->add_cap('delete_posts',  $wpur_post_j_editor);
+        $wpur_post_edit_j_editor = get_option('wpur_user_post_edit') == 1;
+        $junior_editor_role->add_cap('edit_published_posts', $wpur_post_edit_j_editor);
+        $wpur_post_delete_j_editor = get_option('wpur_user_post_delete') == 1;
+        $junior_editor_role->add_cap('delete_published_posts', $wpur_post_delete_j_editor);
+        $wpur_post_edit_others_j_editor = get_option('wpur_user_post_edit_others') == 1;
+        $junior_editor_role->add_cap('edit_others_posts', $wpur_post_edit_others_j_editor);
+        $wpur_post_delete_others_j_editor = get_option('wpur_user_post_delete_others') == 1;
+        $junior_editor_role->add_cap('delete_others_posts', $wpur_post_delete_others_j_editor);
+
+        $wpur_pages_j_editor = get_option('wpur_user_page_j_editor') == 1;
+        $junior_editor_role->add_cap('edit_pages', $wpur_pages_j_editor);
+        $junior_editor_role->add_cap('publish_pages', $wpur_pages_j_editor);
+        $junior_editor_role->add_cap('delete_pages', $wpur_pages_j_editor);
+        $junior_editor_role->add_cap('delete_private_pages', $wpur_pages_j_editor);
+        $junior_editor_role->add_cap('edit_private_pages', $wpur_pages_j_editor);
+        $junior_editor_role->add_cap('read_private_pages', $wpur_pages_j_editor);
+        $wpur_page_edit_j_editor = get_option('wpur_user_page_edit_j_editor' ) == 1;
+        $junior_editor_role->add_cap('edit_published_pages', $wpur_page_edit_j_editor);
+        $wpur_page_delete_j_editor = get_option('wpur_user_page_delete_j_editor') == 1;
+        $junior_editor_role->add_cap('delete_published_pages', $wpur_page_delete_j_editor);
+        $wpur_page_edit_other_j_editor = get_option('wpur_user_page_edit_others_j_editor') == 1;
+        $junior_editor_role->add_cap('edit_others_pages', $wpur_page_edit_other_j_editor);
+        $wpur_page_delete_other_j_editor = get_option('wpur_user_page_delete_others_j_editor') == 1;
+        $junior_editor_role->add_cap('delete_others_pages', $wpur_page_delete_other_j_editor);
+
+        $wpur_media_j_editor = get_option('wpur_user_media_j_editor') == 1;
+        $junior_editor_role->add_cap('upload_files', $wpur_media_j_editor);
+
+        $wpur_plugin_j_editor = get_option('wpur_user_plugin_j_editor') == 1;
+        $junior_editor_role->add_cap('manage_network_plugins', $wpur_plugin_j_editor);
+        $junior_editor_role->add_cap('upload_plugins', $wpur_plugin_j_editor);
+        $junior_editor_role->add_cap('activate_plugins', $wpur_plugin_j_editor);
+        $junior_editor_role->add_cap('delete_plugins', $wpur_plugin_j_editor);
+        $junior_editor_role->add_cap('edit_plugins', $wpur_plugin_j_editor);
+        $junior_editor_role->add_cap('install_plugins', $wpur_plugin_j_editor);
+        $junior_editor_role->add_cap('update_plugins', $wpur_plugin_j_editor);
+
+        $wpur_setting_j_editor = get_option('wpur_user_setting_j_editor') == 1;
+        $junior_editor_role->add_cap('manage_options', $wpur_setting_j_editor);
+
     }
 }
 
