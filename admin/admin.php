@@ -36,6 +36,28 @@ function wpur_request_processor()
             $response['status'] = 'OK';
             $response['message'] = ' Congratulations!! General Setting Saved Successfully';
             break;
+
+        //~~ Save admin settings Area
+        case "save_general_settings_seo":
+            update_option('wpur_user_post_seo', empty($_POST['wpur_user_post_seo']) ? 0 : 1);
+            update_option('wpur_user_post_edit_seo', empty($_POST['wpur_user_post_edit_seo']) ? 0 : 1);
+            update_option('wpur_user_post_delete_seo', empty($_POST['wpur_user_post_delete_seo']) ? 0 : 1);
+            update_option('wpur_user_post_edit_others_seo', empty($_POST['wpur_user_post_edit_others_seo']) ? 0 : 1);
+            update_option('wpur_user_post_delete_others_seo', empty($_POST['wpur_user_post_delete_others_seo']) ? 0 : 1);
+            update_option('wpur_user_theme_seo', empty($_POST['wpur_user_theme_seo']) ? 0 : 1);
+            update_option('wpur_user_users_seo', empty($_POST['wpur_user_users_seo']) ? 0 : 1);
+            update_option('wpur_user_page_edit_seo', empty($_POST['wpur_user_page_edit_seo']) ? 0 : 1);
+            update_option('wpur_user_page_delete_seo', empty($_POST['wpur_user_page_delete_seo']) ? 0 : 1);
+            update_option('wpur_user_page_edit_others_seo', empty($_POST['wpur_user_page_edit_others_seo']) ? 0 : 1);
+            update_option('wpur_user_page_delete_others_seo', empty($_POST['wpur_user_page_delete_others_seo']) ? 0 : 1);
+            update_option('wpur_user_page_seo', empty($_POST['wpur_user_page_seo']) ? 0 : 1);
+            update_option('wpur_user_media_seo', empty($_POST['wpur_user_media_seo']) ? 0 : 1);
+            update_option('wpur_user_plugin_seo', empty($_POST['wpur_user_plugin_seo']) ? 0 : 1);
+            update_option('wpur_user_setting_seo', empty($_POST['wpur_user_setting_seo']) ? 0 : 1);
+
+            $response['status'] = 'OK';
+            $response['message'] = ' Congratulations!! General Setting Saved Successfully';
+            break;
         default:
             $response['message'] = ' Something went wrong. Please try again later';
             $response['status'] = "Error";

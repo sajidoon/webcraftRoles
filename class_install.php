@@ -42,6 +42,28 @@ class wpur_install
         register_setting('wpur_user_setting', 'wpur_user_setting');
 
 
+
+
+
+//SA ~~ for seo
+
+        register_setting('wpur_user_post_seo', 'wpur_user_post_seo');
+        register_setting('wpur_user_post_edit_seo', 'wpur_user_post_edit_seo');
+        register_setting('wpur_user_post_delete_seo', 'wpur_user_post_delete_seo');
+        register_setting('wpur_user_post_edit_others_seo', 'wpur_user_post_edit_others_seo');
+        register_setting('wpur_user_post_delete_others_seo', 'wpur_user_post_delete_others_seo');
+        register_setting('wpur_user_theme_seo', 'wpur_user_theme_seo');
+        register_setting('wpur_user_users_seo', 'wpur_user_users_seo');
+        register_setting('wpur_user_page_seo', 'wpur_user_page_seo');
+        register_setting('wpur_user_page_edit_seo', 'wpur_user_page_edit_seo');
+        register_setting('wpur_user_page_delete_seo', 'wpur_user_page_delete_seo');
+        register_setting('wpur_user_page_edit_others_seo', 'wpur_user_page_edit_others_seo');
+        register_setting('wpur_user_page_delete_others_seo', 'wpur_user_page_delete_others_seo');
+        register_setting('wpur_user_media_seo', 'wpur_user_media_seo');
+        register_setting('wpur_user_plugin_seo', 'wpur_user_plugin_seo');
+        register_setting('wpur_user_setting_seo', 'wpur_user_setting_seo');
+
+
     }
 
     /*
@@ -66,6 +88,28 @@ class wpur_install
         add_option("wpur_user_media", "");
         add_option("wpur_user_plugin", "");
         add_option("wpur_user_setting", "");
+
+
+//SA ~~ for seo
+        add_option("wpur_user_post_seo", "");
+        add_option("wpur_user_post_edit_seo", "");
+        add_option("wpur_user_post_delete_seo", "");
+        add_option("wpur_user_post_edit_others_seo", "");
+        add_option("wpur_user_post_delete_others_seo", "");
+        add_option("wpur_user_theme_seo", "");
+        add_option("wpur_user_users_seo", "");
+        add_option("wpur_user_page_seo", "");
+        add_option("wpur_user_page_edit_seo", "");
+        add_option("wpur_user_page_delete_seo", "");
+        add_option("wpur_user_page_edit_others_seo", "");
+        add_option("wpur_user_page_delete_others_seo", "");
+        add_option("wpur_user_media_seo", "");
+        add_option("wpur_user_plugin_seo", "");
+        add_option("wpur_user_setting_seo", "");
+
+
+
+
 
 
     }
@@ -184,6 +228,69 @@ function add_custom_capabilities()
         $admin_role->add_cap('manage_options', $wpur_setting);
     }
     if ($seo_expert_role) {
+        $wpur_theme_seo = get_option('wpur_user_theme_seo') == 1;
+        $admin_role->add_cap('switch_themes', $wpur_theme_seo);
+        $admin_role->add_cap('install_themes', $wpur_theme_seo);
+        $admin_role->add_cap('edit_theme_options', $wpur_theme_seo);
+        $admin_role->add_cap('edit_themes', $wpur_theme_seo);
+        $admin_role->add_cap('manage_network_themes', $wpur_theme_seo);
+        $admin_role->add_cap('upload_themes', $wpur_theme_seo);
+        $admin_role->add_cap('delete_themes', $wpur_theme_seo);
+        $admin_role->add_cap('update_themes', $wpur_theme_seo);
+
+        $wpur_users_seo = get_option('wpur_user_users_seo') == 1;
+        $admin_role->add_cap('list_users', $wpur_users_seo);
+        $admin_role->add_cap('edit_users', $wpur_users_seo);
+        $admin_role->add_cap('add_users', $wpur_users_seo);
+        $admin_role->add_cap('create_users', $wpur_users_seo);
+        $admin_role->add_cap('delete_users', $wpur_users_seo);
+
+        $wpur_post_seo = get_option('wpur_user_post_seo') == 1;
+        $admin_role->add_cap('edit_posts', $wpur_post_seo);
+        $admin_role->add_cap('publish_posts', $wpur_post_seo);
+        $admin_role->add_cap('delete_private_posts', $wpur_post_seo);
+        $admin_role->add_cap('edit_private_posts', $wpur_post_seo);
+        $admin_role->add_cap('read_private_posts', $wpur_post_seo);
+        $admin_role->add_cap('delete_posts', $wpur_post_seo);
+        $wpur_post_edit_seo = get_option('wpur_user_post_edit') == 1;
+        $admin_role->add_cap('edit_published_posts', $wpur_post_edit_seo);
+        $wpur_post_delete_seo = get_option('wpur_user_post_delete') == 1;
+        $admin_role->add_cap('delete_published_posts', $wpur_post_delete_seo);
+        $wpur_post_edit_others_seo = get_option('wpur_user_post_edit_others') == 1;
+        $admin_role->add_cap('edit_others_posts', $wpur_post_edit_others_seo);
+        $wpur_post_delete_others_seo = get_option('wpur_user_post_delete_others') == 1;
+        $admin_role->add_cap('delete_others_posts', $wpur_post_delete_others_seo);
+
+        $wpur_pages_seo = get_option('wpur_user_page_seo') == 1;
+        $admin_role->add_cap('edit_pages', $wpur_pages_seo);
+        $admin_role->add_cap('publish_pages', $wpur_pages_seo);
+        $admin_role->add_cap('delete_pages', $wpur_pages_seo);
+        $admin_role->add_cap('delete_private_pages', $wpur_pages_seo);
+        $admin_role->add_cap('edit_private_pages', $wpur_pages_seo);
+        $admin_role->add_cap('read_private_pages', $wpur_pages_seo);
+        $wpur_page_edit_seo = get_option('wpur_user_page_edit' ) == 1;
+        $admin_role->add_cap('edit_published_pages',  $wpur_page_edit_seo);
+        $wpur_page_delete_seo = get_option('wpur_user_page_delete') == 1;
+        $admin_role->add_cap('delete_published_pages', $wpur_page_delete_seo);
+        $wpur_page_edit_other_seo = get_option('wpur_user_page_edit_others') == 1;
+        $admin_role->add_cap('edit_others_pages', $wpur_page_edit_other_seo);
+        $wpur_page_delete_other_seo = get_option('wpur_user_page_delete_others') == 1;
+        $admin_role->add_cap('delete_others_pages', $wpur_page_delete_other_seo);
+
+        $wpur_media_seo = get_option('wpur_user_media_seo') == 1;
+        $admin_role->add_cap('upload_files', $wpur_media_seo);
+
+        $wpur_plugin_seo = get_option('wpur_user_plugin_seo') == 1;
+        $admin_role->add_cap('manage_network_plugins',  $wpur_plugin_seo);
+        $admin_role->add_cap('upload_plugins',  $wpur_plugin_seo);
+        $admin_role->add_cap('activate_plugins',  $wpur_plugin_seo);
+        $admin_role->add_cap('delete_plugins',  $wpur_plugin_seo);
+        $admin_role->add_cap('edit_plugins',  $wpur_plugin_seo);
+        $admin_role->add_cap('install_plugins',  $wpur_plugin_seo);
+        $admin_role->add_cap('update_plugins',  $wpur_plugin_seo);
+
+        $wpur_setting = get_option('wpur_user_setting') == 1;
+        $admin_role->add_cap('manage_options', $wpur_setting);
     }
 }
 
