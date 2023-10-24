@@ -26,8 +26,8 @@ function wpur_request_processor()
             update_option('wpur_user_users', empty($_POST['wpur_user_users']) ? 0 : 1);
             update_option('wpur_user_page_edit', empty($_POST['wpur_user_page_edit']) ? 0 : 1);
             update_option('wpur_user_page_delete', empty($_POST['wpur_user_page_delete']) ? 0 : 1);
-            update_option('wpur_user_page_edit_other', empty($_POST['wpur_user_page_edit_other']) ? 0 : 1);
-            update_option('wpur_user_page_delete_other', empty($_POST['wpur_user_page_delete_other']) ? 0 : 1);
+            update_option('wpur_user_page_edit_others', empty($_POST['wpur_user_page_edit_others']) ? 0 : 1);
+            update_option('wpur_user_page_delete_others', empty($_POST['wpur_user_page_delete_others']) ? 0 : 1);
             update_option('wpur_user_page', empty($_POST['wpur_user_page']) ? 0 : 1);
             update_option('wpur_user_media', empty($_POST['wpur_user_media']) ? 0 : 1);
             update_option('wpur_user_plugin', empty($_POST['wpur_user_plugin']) ? 0 : 1);

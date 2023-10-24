@@ -1,7 +1,7 @@
 //~~ Ajax calls to save settings and other things
 jQuery(document).ready(function () {
 
-    //~~ Saving admin settings with ajax call
+    //SA~~ Saving admin settings with ajax call
     jQuery(document).on('submit', '.wpur_general_settings', function (e) {
         e.preventDefault();
         let $form = jQuery(this);
@@ -34,6 +34,32 @@ jQuery(document).ready(function () {
                 }
 
             });
+    });
+
+    //SA~~ post related check box disable
+    jQuery(document).ready(function () {
+        var $post_checked = jQuery(".wpur_post_user_option").val();
+        if ($post_checked == 1) {
+            jQuery(document).find('.wpur_post_other_option').removeClass('post_option_active');
+        }else {
+            jQuery(document).find('.wpur_post_other_option').addClass('post_option_active');
+        }
+        jQuery('#wpur_user_post').change( function(){
+            jQuery(document).find('.wpur_post_other_option').toggleClass('post_option_active');
+        })
+    });
+
+    //SA~~ page related check box disable
+    jQuery(document).ready(function () {
+        var $page_checked = jQuery(".wpur_page_user_option").val();
+        if ($page_checked == 1) {
+            jQuery(document).find('.wpur_page_other_option').removeClass('page_option_active');
+        }else {
+            jQuery(document).find('.wpur_page_other_option').addClass('page_option_active');
+        }
+        jQuery('#wpur_user_page').change( function(){
+            jQuery(document).find('.wpur_page_other_option').toggleClass('page_option_active');
+        })
     });
 
 });

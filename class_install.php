@@ -34,8 +34,9 @@ class wpur_install
         register_setting('wpur_user_users', 'wpur_user_users');
         register_setting('wpur_user_page', 'wpur_user_page');
         register_setting('wpur_user_page_edit', 'wpur_user_page_edit');
-        register_setting('wpur_user_page_edit_other', 'wpur_user_page_edit_other');
-        register_setting('wpur_user_page_delete_other', 'wpur_user_page_delete_other');
+        register_setting('wpur_user_page_delete', 'wpur_user_page_delete');
+        register_setting('wpur_user_page_edit_others', 'wpur_user_page_edit_others');
+        register_setting('wpur_user_page_delete_others', 'wpur_user_page_delete_others');
         register_setting('wpur_user_media', 'wpur_user_media');
         register_setting('wpur_user_plugin', 'wpur_user_plugin');
         register_setting('wpur_user_setting', 'wpur_user_setting');
@@ -59,6 +60,9 @@ class wpur_install
         add_option("wpur_user_users", "");
         add_option("wpur_user_page", "");
         add_option("wpur_user_page_edit", "");
+        add_option("wpur_user_page_delete", "");
+        add_option("wpur_user_page_edit_others", "");
+        add_option("wpur_user_page_delete_others", "");
         add_option("wpur_user_media", "");
         add_option("wpur_user_plugin", "");
         add_option("wpur_user_setting", "");
@@ -75,7 +79,9 @@ class wpur_install
     }
 
 }
-function custom_roles_capabilities_activation() {
+
+function custom_roles_capabilities_activation()
+{
     add_role('whmpress_admin', 'WHMPress Admin', array(
         'read' => true,
         'level_0' => true,
@@ -91,18 +97,22 @@ function custom_roles_capabilities_activation() {
         'level_0' => true,
     ));
 }
+
 register_activation_hook(__FILE__, 'custom_roles_capabilities_activation');
 add_action('init', 'custom_roles_capabilities_activation');
 // Remove custom roles on plugin deactivation
-function custom_roles_capabilities_deactivation() {
+function custom_roles_capabilities_deactivation()
+{
     remove_role('whmpress_admin');
     remove_role('whmpress_editor');
     remove_role('whmpress_seo_expert');
 }
+
 register_deactivation_hook(__FILE__, 'custom_roles_capabilities_deactivation');
 
 // Add custom capabilities to roles
-function add_custom_capabilities() {
+function add_custom_capabilities()
+{
     // Get the roles
     $admin_role = get_role('whmpress_admin');
     $seo_expert_role = get_role('whmpress_seo_expert');
@@ -149,13 +159,13 @@ function add_custom_capabilities() {
         $admin_role->add_cap('delete_private_pages', $wpur_pages);
         $admin_role->add_cap('edit_private_pages', $wpur_pages);
         $admin_role->add_cap('read_private_pages', $wpur_pages);
-        $wpur_page_edit = get_option('wpur_user_page_edit') == 1;
-        $admin_role->add_cap('edit_published_pages',  $wpur_page_edit);
+        $wpur_page_edit = get_option('wpur_user_page_edit' ) == 1;
+        $admin_role->add_cap('edit_published_pages', $wpur_page_edit);
         $wpur_page_delete = get_option('wpur_user_page_delete') == 1;
         $admin_role->add_cap('delete_published_pages', $wpur_page_delete);
-        $wpur_page_edit_other = get_option('wpur_user_page_edit_other') == 1;
+        $wpur_page_edit_other = get_option('wpur_user_page_edit_others') == 1;
         $admin_role->add_cap('edit_others_pages', $wpur_page_edit_other);
-        $wpur_page_delete_other = get_option('wpur_user_page_delete_other') == 1;
+        $wpur_page_delete_other = get_option('wpur_user_page_delete_others') == 1;
         $admin_role->add_cap('delete_others_pages', $wpur_page_delete_other);
 
         $wpur_media = get_option('wpur_user_media') == 1;
@@ -176,12 +186,14 @@ function add_custom_capabilities() {
     if ($seo_expert_role) {
     }
 }
+
 add_action('init', 'add_custom_capabilities');
 
 
 // Add a custom menu to the WordPress admin
 
-function add_custom_menu() {
+function add_custom_menu()
+{
     add_menu_page(
         'Custom Menu',
         'User Role',
@@ -193,7 +205,8 @@ function add_custom_menu() {
 }
 
 // Callback function to display content on the custom menu page
-function custom_menu_page_content() {
+function custom_menu_page_content()
+{
     include_once __DIR__ . "/settings.php";
 }
 
