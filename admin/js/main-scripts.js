@@ -83,7 +83,7 @@ jQuery(document).ready(function () {
 
         //~~ preparing ajax data
         data.push({'name': 'action', 'value': 'wpur_request_processor'});
-        data.push({'name': 'wpur_what', 'value': 'save_general_settings_j_edito'});
+        data.push({'name': 'wpur_what', 'value': 'save_general_settings_j_editor'});
 
         console.log(data);
         save_btn.text('Saving...');

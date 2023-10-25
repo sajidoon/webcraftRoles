@@ -331,7 +331,6 @@
 <!--For Seo admin-->
 
 <form action="" method="post" class="wpur_general_settings_seo">
-    <div class="settings_response_seo"></div>
 
     <h1>Seo</h1>
 
@@ -499,7 +498,6 @@
 
 
     <form action="" method="post" class="wpur_general_settings_j_editor">
-        <div class="settings_response"></div>
 
         <h1>Junior Editor</h1>
 
