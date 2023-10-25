@@ -81,6 +81,74 @@ function wpur_request_processor()
             $response['message'] = ' Congratulations!! General Setting Saved Successfully';
             break;
 
+        //~~ Senior editor role
+        case "save_general_settings_senior_editor":
+            update_option('wpur_user_post_senior_editor', empty($_POST['wpur_user_post_senior_editor']) ? 0 : 1);
+            update_option('wpur_user_post_edit_senior_editor', empty($_POST['wpur_user_post_edit_senior_editor']) ? 0 : 1);
+            update_option('wpur_user_post_delete_senior_editor', empty($_POST['wpur_user_post_delete_senior_editor']) ? 0 : 1);
+            update_option('wpur_user_post_edit_others_senior_editor', empty($_POST['wpur_user_post_edit_others_senior_editor']) ? 0 : 1);
+            update_option('wpur_user_post_delete_others_senior_editor', empty($_POST['wpur_user_post_delete_others_senior_editor']) ? 0 : 1);
+            update_option('wpur_user_theme_senior_editor', empty($_POST['wpur_user_theme_senior_editor']) ? 0 : 1);
+            update_option('wpur_user_users_senior_editor', empty($_POST['wpur_user_users_senior_editor']) ? 0 : 1);
+            update_option('wpur_user_page_edit_senior_editor', empty($_POST['wpur_user_page_edit_senior_editor']) ? 0 : 1);
+            update_option('wpur_user_page_delete_senior_editor', empty($_POST['wpur_user_page_delete_senior_editor']) ? 0 : 1);
+            update_option('wpur_user_page_edit_others_senior_editor', empty($_POST['wpur_user_page_edit_others_senior_editor']) ? 0 : 1);
+            update_option('wpur_user_page_delete_others_senior_editor', empty($_POST['wpur_user_page_delete_others_senior_editor']) ? 0 : 1);
+            update_option('wpur_user_page_senior_editor', empty($_POST['wpur_user_page_senior_editor']) ? 0 : 1);
+            update_option('wpur_user_media_senior_editor', empty($_POST['wpur_user_media_senior_editor']) ? 0 : 1);
+            update_option('wpur_user_plugin_senior_editor', empty($_POST['wpur_user_plugin_senior_editor']) ? 0 : 1);
+            update_option('wpur_user_setting_senior_editor', empty($_POST['wpur_user_setting_senior_editor']) ? 0 : 1);
+
+            $response['status'] = 'OK';
+            $response['message'] = ' Congratulations!! General Setting Saved Successfully';
+            break;
+
+
+        //~~ Junior Admin
+        case "save_general_settings_J_admin":
+            update_option('wpur_user_post_J_admin', empty($_POST['wpur_user_post_J_admin']) ? 0 : 1);
+            update_option('wpur_user_post_edit_J_admin', empty($_POST['wpur_user_post_edit_J_admin']) ? 0 : 1);
+            update_option('wpur_user_post_delete_J_admin', empty($_POST['wpur_user_post_delete_J_admin']) ? 0 : 1);
+            update_option('wpur_user_post_edit_others_J_admin', empty($_POST['wpur_user_post_edit_others_J_admin']) ? 0 : 1);
+            update_option('wpur_user_post_delete_others_J_admin', empty($_POST['wpur_user_post_delete_others_J_admin']) ? 0 : 1);
+            update_option('wpur_user_theme_J_admin', empty($_POST['wpur_user_theme_J_admin']) ? 0 : 1);
+            update_option('wpur_user_users_J_admin', empty($_POST['wpur_user_users_J_admin']) ? 0 : 1);
+            update_option('wpur_user_page_edit_J_admin', empty($_POST['wpur_user_page_edit_J_admin']) ? 0 : 1);
+            update_option('wpur_user_page_delete_J_admin', empty($_POST['wpur_user_page_delete_J_admin']) ? 0 : 1);
+            update_option('wpur_user_page_edit_others_J_admin', empty($_POST['wpur_user_page_edit_others_J_admin']) ? 0 : 1);
+            update_option('wpur_user_page_delete_others_J_admin', empty($_POST['wpur_user_page_delete_others_J_admin']) ? 0 : 1);
+            update_option('wpur_user_page_J_admin', empty($_POST['wpur_user_page_J_admin']) ? 0 : 1);
+            update_option('wpur_user_media_J_admin', empty($_POST['wpur_user_media_J_admin']) ? 0 : 1);
+            update_option('wpur_user_plugin_J_admin', empty($_POST['wpur_user_plugin_J_admin']) ? 0 : 1);
+            update_option('wpur_user_setting_J_admin', empty($_POST['wpur_user_setting_J_admin']) ? 0 : 1);
+
+            $response['status'] = 'OK';
+            $response['message'] = ' Congratulations!! General Setting Saved Successfully';
+            break;
+
+        //~~ Senior Admin
+
+        case "save_general_settings":
+            update_option('wpur_user_post_s_author', empty($_POST['wpur_user_post_s_author']) ? 0 : 1);
+            update_option('wpur_user_post_edit_s_author', empty($_POST['wpur_user_post_edit_s_author']) ? 0 : 1);
+            update_option('wpur_user_post_delete_s_author', empty($_POST['wpur_user_post_delete_s_author']) ? 0 : 1);
+            update_option('wpur_user_post_edit_others_s_author', empty($_POST['wpur_user_post_edit_others_s_author']) ? 0 : 1);
+            update_option('wpur_user_post_delete_others_s_author', empty($_POST['wpur_user_post_delete_others_s_author']) ? 0 : 1);
+            update_option('wpur_user_theme_s_author', empty($_POST['wpur_user_theme_s_author']) ? 0 : 1);
+            update_option('wpur_user_users_s_author', empty($_POST['wpur_user_users_s_author']) ? 0 : 1);
+            update_option('wpur_user_page_edit_s_author', empty($_POST['wpur_user_page_edit_s_author']) ? 0 : 1);
+            update_option('wpur_user_page_delete_s_author', empty($_POST['wpur_user_page_delete_s_author']) ? 0 : 1);
+            update_option('wpur_user_page_edit_others_s_author', empty($_POST['wpur_user_page_edit_others_s_author']) ? 0 : 1);
+            update_option('wpur_user_page_delete_others_s_author', empty($_POST['wpur_user_page_delete_others_s_author']) ? 0 : 1);
+            update_option('wpur_user_page_s_author', empty($_POST['wpur_user_page_s_author']) ? 0 : 1);
+            update_option('wpur_user_media_s_author', empty($_POST['wpur_user_media_s_author']) ? 0 : 1);
+            update_option('wpur_user_plugin_s_author', empty($_POST['wpur_user_plugin_s_author']) ? 0 : 1);
+            update_option('wpur_user_setting_s_author', empty($_POST['wpur_user_setting_s_author']) ? 0 : 1);
+
+            $response['status'] = 'OK';
+            $response['message'] = ' Congratulations!! General Setting Saved Successfully';
+            break;
+
         default:
             $response['message'] = ' Something went wrong. Please try again later';
             $response['status'] = "Error";
