@@ -241,8 +241,6 @@ jQuery(document).ready(function () {
         })
     });
 
-
-
     //SA~~ post seo related check box disable
     jQuery(document).ready(function () {
         var $post_checked = jQuery(".wpur_post_user_option_seo").val();

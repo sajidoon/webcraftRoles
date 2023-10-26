@@ -126,9 +126,9 @@ function wpur_request_processor()
             $response['message'] = ' Congratulations!! General Setting Saved Successfully';
             break;
 
-        //~~ Senior Admin
+        //~~ Senior Author
 
-        case "save_general_settings":
+        case "save_general_settings_s_author":
             update_option('wpur_user_post_s_author', empty($_POST['wpur_user_post_s_author']) ? 0 : 1);
             update_option('wpur_user_post_edit_s_author', empty($_POST['wpur_user_post_edit_s_author']) ? 0 : 1);
             update_option('wpur_user_post_delete_s_author', empty($_POST['wpur_user_post_delete_s_author']) ? 0 : 1);

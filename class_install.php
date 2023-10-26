@@ -302,6 +302,12 @@ function custom_roles_capabilities_activation()
         'level_0' => true,
     ));
 
+    add_role('whmpress_Senior_author', 'WHMPress Senior author', array(
+        'read' => true,
+        'level_0' => true,
+    ));
+
+
 }
 
 register_activation_hook(__FILE__, 'custom_roles_capabilities_activation');
@@ -329,7 +335,7 @@ function add_custom_capabilities()
     $junior_editor_role = get_role('whmpress_junior_editor');
     $senior_editor_role = get_role('whmpress_senior_editor');
     $J_admin_admin_role = get_role('whmpress_J_admin');
-    $Senior_author_admin_role = get_role('whmpress_s_author');
+    $Senior_author_admin_role = get_role('whmpress_Senior_author');
 
     // Add custom capabilities to the roles
     if ($admin_role) {
@@ -599,134 +605,134 @@ function add_custom_capabilities()
 
     if ($J_admin_admin_role) {
         $wpur_theme_J_admin = get_option('wpur_user_theme_J_admin') == 1;
-        $admin_role->add_cap('switch_themes', $wpur_theme_J_admin);
-        $admin_role->add_cap('install_themes', $wpur_theme_J_admin);
-        $admin_role->add_cap('edit_theme_options', $wpur_theme_J_admin);
-        $admin_role->add_cap('edit_themes', $wpur_theme_J_admin);
-        $admin_role->add_cap('manage_network_themes', $wpur_theme_J_admin);
-        $admin_role->add_cap('upload_themes', $wpur_theme_J_admin);
-        $admin_role->add_cap('delete_themes', $wpur_theme_J_admin);
-        $admin_role->add_cap('update_themes', $wpur_theme_J_admin);
+        $J_admin_admin_role->add_cap('switch_themes', $wpur_theme_J_admin);
+        $J_admin_admin_role->add_cap('install_themes', $wpur_theme_J_admin);
+        $J_admin_admin_role->add_cap('edit_theme_options', $wpur_theme_J_admin);
+        $J_admin_admin_role->add_cap('edit_themes', $wpur_theme_J_admin);
+        $J_admin_admin_role->add_cap('manage_network_themes', $wpur_theme_J_admin);
+        $J_admin_admin_role->add_cap('upload_themes', $wpur_theme_J_admin);
+        $J_admin_admin_role->add_cap('delete_themes', $wpur_theme_J_admin);
+        $J_admin_admin_role->add_cap('update_themes', $wpur_theme_J_admin);
 
         $wpur_users_J_admin = get_option('wpur_user_users_J_admin') == 1;
-        $admin_role->add_cap('list_users', $wpur_users_J_admin);
-        $admin_role->add_cap('edit_users', $wpur_users_J_admin);
-        $admin_role->add_cap('add_users', $wpur_users_J_admin);
-        $admin_role->add_cap('create_users', $wpur_users_J_admin);
-        $admin_role->add_cap('delete_users', $wpur_users_J_admin);
+        $J_admin_admin_role->add_cap('list_users', $wpur_users_J_admin);
+        $J_admin_admin_role->add_cap('edit_users', $wpur_users_J_admin);
+        $J_admin_admin_role->add_cap('add_users', $wpur_users_J_admin);
+        $J_admin_admin_role->add_cap('create_users', $wpur_users_J_admin);
+        $J_admin_admin_role->add_cap('delete_users', $wpur_users_J_admin);
 
         $wpur_post_J_admin = get_option('wpur_user_post_J_admin') == 1;
-        $admin_role->add_cap('edit_posts', $wpur_post_J_admin);
-        $admin_role->add_cap('publish_posts', $wpur_post_J_admin);
-        $admin_role->add_cap('delete_private_posts', $wpur_post_J_admin);
-        $admin_role->add_cap('edit_private_posts', $wpur_post_J_admin);
-        $admin_role->add_cap('read_private_posts', $wpur_post_J_admin);
-        $admin_role->add_cap('delete_posts', $wpur_post_J_admin);
+        $J_admin_admin_role->add_cap('edit_posts', $wpur_post_J_admin);
+        $J_admin_admin_role->add_cap('publish_posts', $wpur_post_J_admin);
+        $J_admin_admin_role->add_cap('delete_private_posts', $wpur_post_J_admin);
+        $J_admin_admin_role->add_cap('edit_private_posts', $wpur_post_J_admin);
+        $J_admin_admin_role->add_cap('read_private_posts', $wpur_post_J_admin);
+        $J_admin_admin_role->add_cap('delete_posts', $wpur_post_J_admin);
         $wpur_post_edit_J_admin = get_option('wpur_user_post_edit_J_admin') == 1;
-        $admin_role->add_cap('edit_published_posts', $wpur_post_edit_J_admin);
+        $J_admin_admin_role->add_cap('edit_published_posts', $wpur_post_edit_J_admin);
         $wpur_post_delete_J_admin = get_option('wpur_user_post_delete_J_admin') == 1;
-        $admin_role->add_cap('delete_published_posts', $wpur_post_delete_J_admin);
+        $J_admin_admin_role->add_cap('delete_published_posts', $wpur_post_delete_J_admin);
         $wpur_post_edit_others_J_admin = get_option('wpur_user_post_edit_others_J_admin') == 1;
-        $admin_role->add_cap('edit_others_posts', $wpur_post_edit_others_J_admin);
+        $J_admin_admin_role->add_cap('edit_others_posts', $wpur_post_edit_others_J_admin);
         $wpur_post_delete_others_J_admin = get_option('wpur_user_post_delete_others_J_admin') == 1;
-        $admin_role->add_cap('delete_others_posts', $wpur_post_delete_others_J_admin);
+        $J_admin_admin_role->add_cap('delete_others_posts', $wpur_post_delete_others_J_admin);
 
         $wpur_pages_J_admin = get_option('wpur_user_page_J_admin') == 1;
-        $admin_role->add_cap('edit_pages', $wpur_pages_J_admin);
-        $admin_role->add_cap('publish_pages', $wpur_pages_J_admin);
-        $admin_role->add_cap('delete_pages', $wpur_pages_J_admin);
-        $admin_role->add_cap('delete_private_pages', $wpur_pages_J_admin);
-        $admin_role->add_cap('edit_private_pages', $wpur_pages_J_admin);
-        $admin_role->add_cap('read_private_pages', $wpur_pages_J_admin);
+        $J_admin_admin_role->add_cap('edit_pages', $wpur_pages_J_admin);
+        $J_admin_admin_role->add_cap('publish_pages', $wpur_pages_J_admin);
+        $J_admin_admin_role->add_cap('delete_pages', $wpur_pages_J_admin);
+        $J_admin_admin_role->add_cap('delete_private_pages', $wpur_pages_J_admin);
+        $J_admin_admin_role->add_cap('edit_private_pages', $wpur_pages_J_admin);
+        $J_admin_admin_role->add_cap('read_private_pages', $wpur_pages_J_admin);
         $wpur_page_edit_J_admin = get_option('wpur_user_page_edit_J_admin' ) == 1;
-        $admin_role->add_cap('edit_published_pages', $wpur_page_edit_J_admin);
+        $J_admin_admin_role->add_cap('edit_published_pages', $wpur_page_edit_J_admin);
         $wpur_page_delete_J_admin = get_option('wpur_user_page_delete_J_admin') == 1;
-        $admin_role->add_cap('delete_published_pages', $wpur_page_delete_J_admin);
+        $J_admin_admin_role->add_cap('delete_published_pages', $wpur_page_delete_J_admin);
         $wpur_page_edit_other_J_admin = get_option('wpur_user_page_edit_others_J_admin') == 1;
-        $admin_role->add_cap('edit_others_pages', $wpur_page_edit_other_J_admin);
+        $J_admin_admin_role->add_cap('edit_others_pages', $wpur_page_edit_other_J_admin);
         $wpur_page_delete_other_J_admin = get_option('wpur_user_page_delete_others_J_admin') == 1;
-        $admin_role->add_cap('delete_others_pages', $wpur_page_delete_other_J_admin);
+        $J_admin_admin_role->add_cap('delete_others_pages', $wpur_page_delete_other_J_admin);
 
         $wpur_media_J_admin = get_option('wpur_user_media_J_admin') == 1;
-        $admin_role->add_cap('upload_files', $wpur_media_J_admin);
+        $J_admin_admin_role->add_cap('upload_files', $wpur_media_J_admin);
 
         $wpur_plugin_J_admin = get_option('wpur_user_plugin_J_admin') == 1;
-        $admin_role->add_cap('manage_network_plugins', $wpur_plugin_J_admin);
-        $admin_role->add_cap('upload_plugins', $wpur_plugin_J_admin);
-        $admin_role->add_cap('activate_plugins', $wpur_plugin_J_admin);
-        $admin_role->add_cap('delete_plugins', $wpur_plugin_J_admin);
-        $admin_role->add_cap('edit_plugins', $wpur_plugin_J_admin);
-        $admin_role->add_cap('install_plugins', $wpur_plugin_J_admin);
-        $admin_role->add_cap('update_plugins', $wpur_plugin_J_admin);
+        $J_admin_admin_role->add_cap('manage_network_plugins', $wpur_plugin_J_admin);
+        $J_admin_admin_role->add_cap('upload_plugins', $wpur_plugin_J_admin);
+        $J_admin_admin_role->add_cap('activate_plugins', $wpur_plugin_J_admin);
+        $J_admin_admin_role->add_cap('delete_plugins', $wpur_plugin_J_admin);
+        $J_admin_admin_role->add_cap('edit_plugins', $wpur_plugin_J_admin);
+        $J_admin_admin_role->add_cap('install_plugins', $wpur_plugin_J_admin);
+        $J_admin_admin_role->add_cap('update_plugins', $wpur_plugin_J_admin);
 
         $wpur_setting = get_option('wpur_user_setting') == 1;
-        $admin_role->add_cap('manage_options', $wpur_setting);
+        $J_admin_admin_role->add_cap('manage_options', $wpur_setting);
     }
 
     if ($Senior_author_admin_role) {
         $wpur_theme_s_author = get_option('wpur_user_theme_s_author') == 1;
-        $admin_role->add_cap('switch_themes', $wpur_theme_s_author);
-        $admin_role->add_cap('install_themes', $wpur_theme_s_author);
-        $admin_role->add_cap('edit_theme_options', $wpur_theme_s_author);
-        $admin_role->add_cap('edit_themes', $wpur_theme_s_author);
-        $admin_role->add_cap('manage_network_themes', $wpur_theme_s_author);
-        $admin_role->add_cap('upload_themes', $wpur_theme_s_author);
-        $admin_role->add_cap('delete_themes', $wpur_theme_s_author);
-        $admin_role->add_cap('update_themes', $wpur_theme_s_author);
+        $Senior_author_admin_role->add_cap('switch_themes', $wpur_theme_s_author);
+        $Senior_author_admin_role->add_cap('install_themes', $wpur_theme_s_author);
+        $Senior_author_admin_role->add_cap('edit_theme_options', $wpur_theme_s_author);
+        $Senior_author_admin_role->add_cap('edit_themes', $wpur_theme_s_author);
+        $Senior_author_admin_role->add_cap('manage_network_themes', $wpur_theme_s_author);
+        $Senior_author_admin_role->add_cap('upload_themes', $wpur_theme_s_author);
+        $Senior_author_admin_role->add_cap('delete_themes', $wpur_theme_s_author);
+        $Senior_author_admin_role->add_cap('update_themes', $wpur_theme_s_author);
 
         $wpur_users_s_author = get_option('wpur_user_users_s_author') == 1;
-        $admin_role->add_cap('list_users', $wpur_users_s_author);
-        $admin_role->add_cap('edit_users', $wpur_users_s_author);
-        $admin_role->add_cap('add_users', $wpur_users_s_author);
-        $admin_role->add_cap('create_users', $wpur_users_s_author);
-        $admin_role->add_cap('delete_users', $wpur_users_s_author);
+        $Senior_author_admin_role->add_cap('list_users', $wpur_users_s_author);
+        $Senior_author_admin_role->add_cap('edit_users', $wpur_users_s_author);
+        $Senior_author_admin_role->add_cap('add_users', $wpur_users_s_author);
+        $Senior_author_admin_role->add_cap('create_users', $wpur_users_s_author);
+        $Senior_author_admin_role->add_cap('delete_users', $wpur_users_s_author);
 
         $wpur_post_s_author = get_option('wpur_user_post_s_author') == 1;
-        $admin_role->add_cap('edit_posts', $wpur_post_s_author);
-        $admin_role->add_cap('publish_posts', $wpur_post_s_author);
-        $admin_role->add_cap('delete_private_posts', $wpur_post_s_author);
-        $admin_role->add_cap('edit_private_posts', $wpur_post_s_author);
-        $admin_role->add_cap('read_private_posts', $wpur_post_s_author);
-        $admin_role->add_cap('delete_posts', $wpur_post_s_author);
+        $Senior_author_admin_role->add_cap('edit_posts', $wpur_post_s_author);
+        $Senior_author_admin_role->add_cap('publish_posts', $wpur_post_s_author);
+        $Senior_author_admin_role->add_cap('delete_private_posts', $wpur_post_s_author);
+        $Senior_author_admin_role->add_cap('edit_private_posts', $wpur_post_s_author);
+        $Senior_author_admin_role->add_cap('read_private_posts', $wpur_post_s_author);
+        $Senior_author_admin_role->add_cap('delete_posts', $wpur_post_s_author);
         $wpur_post_edit_s_author = get_option('wpur_user_post_edit_s_author') == 1;
-        $admin_role->add_cap('edit_published_posts', $wpur_post_edit_s_author);
+        $Senior_author_admin_role->add_cap('edit_published_posts', $wpur_post_edit_s_author);
         $wpur_post_delete_s_author = get_option('wpur_user_post_delete_s_author') == 1;
-        $admin_role->add_cap('delete_published_posts', $wpur_post_delete_s_author);
+        $Senior_author_admin_role->add_cap('delete_published_posts', $wpur_post_delete_s_author);
         $wpur_post_edit_others_s_author = get_option('$wpur_post_edit_others_s_author') == 1;
-        $admin_role->add_cap('edit_others_posts', $wpur_post_edit_others_s_author);
+        $Senior_author_admin_role->add_cap('edit_others_posts', $wpur_post_edit_others_s_author);
         $wpur_post_delete_others_s_author = get_option('wpur_user_post_delete_others_s_author') == 1;
-        $admin_role->add_cap('delete_others_posts', $wpur_post_delete_others_s_author);
+        $Senior_author_admin_role->add_cap('delete_others_posts', $wpur_post_delete_others_s_author);
 
         $wpur_pages_s_author = get_option('wpur_user_page_s_author') == 1;
-        $admin_role->add_cap('edit_pages', $wpur_pages_s_author);
-        $admin_role->add_cap('publish_pages', $wpur_pages_s_author);
-        $admin_role->add_cap('delete_pages', $wpur_pages_s_author);
-        $admin_role->add_cap('delete_private_pages', $wpur_pages_s_author);
-        $admin_role->add_cap('edit_private_pages', $wpur_pages_s_author);
-        $admin_role->add_cap('read_private_pages', $wpur_pages_s_author);
+        $Senior_author_admin_role->add_cap('edit_pages', $wpur_pages_s_author);
+        $Senior_author_admin_role->add_cap('publish_pages', $wpur_pages_s_author);
+        $Senior_author_admin_role->add_cap('delete_pages', $wpur_pages_s_author);
+        $Senior_author_admin_role->add_cap('delete_private_pages', $wpur_pages_s_author);
+        $Senior_author_admin_role->add_cap('edit_private_pages', $wpur_pages_s_author);
+        $Senior_author_admin_role->add_cap('read_private_pages', $wpur_pages_s_author);
         $wpur_page_edit_s_author = get_option('wpur_user_page_edit_s_author' ) == 1;
-        $admin_role->add_cap('edit_published_pages', $wpur_page_edit_s_author);
+        $Senior_author_admin_role->add_cap('edit_published_pages', $wpur_page_edit_s_author);
         $wpur_page_delete_s_author = get_option('wpur_user_page_delete_s_author') == 1;
-        $admin_role->add_cap('delete_published_pages', $wpur_page_delete_s_author);
+        $Senior_author_admin_role->add_cap('delete_published_pages', $wpur_page_delete_s_author);
         $wpur_page_edit_other_s_author = get_option('wpur_user_page_edit_others_s_author') == 1;
-        $admin_role->add_cap('edit_others_pages', $wpur_page_edit_other_s_author);
+        $Senior_author_admin_role->add_cap('edit_others_pages', $wpur_page_edit_other_s_author);
         $wpur_page_delete_other_s_author = get_option('wpur_user_page_delete_others_s_author') == 1;
-        $admin_role->add_cap('delete_others_pages', $wpur_page_delete_other_s_author);
+        $Senior_author_admin_role->add_cap('delete_others_pages', $wpur_page_delete_other_s_author);
 
         $wpur_media_s_author = get_option('wpur_user_media_s_author') == 1;
-        $admin_role->add_cap('upload_files', $wpur_media_s_author);
+        $Senior_author_admin_role->add_cap('upload_files', $wpur_media_s_author);
 
         $wpur_plugin_s_author = get_option('wpur_user_plugin_s_author') == 1;
-        $admin_role->add_cap('manage_network_plugins', $wpur_plugin_s_author);
-        $admin_role->add_cap('upload_plugins', $wpur_plugin_s_author);
-        $admin_role->add_cap('activate_plugins', $wpur_plugin_s_author);
-        $admin_role->add_cap('delete_plugins', $wpur_plugin_s_author);
-        $admin_role->add_cap('edit_plugins', $wpur_plugin_s_author);
-        $admin_role->add_cap('install_plugins', $wpur_plugin_s_author);
-        $admin_role->add_cap('update_plugins', $wpur_plugin_s_author);
+        $Senior_author_admin_role->add_cap('manage_network_plugins', $wpur_plugin_s_author);
+        $Senior_author_admin_role->add_cap('upload_plugins', $wpur_plugin_s_author);
+        $Senior_author_admin_role->add_cap('activate_plugins', $wpur_plugin_s_author);
+        $Senior_author_admin_role->add_cap('delete_plugins', $wpur_plugin_s_author);
+        $Senior_author_admin_role->add_cap('edit_plugins', $wpur_plugin_s_author);
+        $Senior_author_admin_role->add_cap('install_plugins', $wpur_plugin_s_author);
+        $Senior_author_admin_role->add_cap('update_plugins', $wpur_plugin_s_author);
 
-        $wpur_setting = get_option('wpur_user_setting_s_author') == 1;
-        $admin_role->add_cap('manage_options_s_author', $wpur_setting);
+        $wpur_setting = get_option('wpur_user_setting') == 1;
+        $Senior_author_admin_role->add_cap('manage_options', $wpur_setting);
     }
 
 }

@@ -182,6 +182,21 @@
         filter: grayscale(1);
     }
 
+    .wpur_main_setting .wpur_post_other_option_s_author.post_option_active {
+        cursor: not-allowed;
+    }
+    .wpur_main_setting .wpur_post_other_option_s_author.post_option_active .switch {
+        pointer-events: none;
+        filter: grayscale(1);
+    }
+
+    .wpur_main_setting .wpur_page_other_option_s_author.page_option_active {
+        cursor: not-allowed;
+    }
+    .wpur_main_setting .wpur_page_other_option_s_author.page_option_active .switch {
+        pointer-events: none;
+        filter: grayscale(1);
+    }
 
     .wpur_row_main{
         display: flex;
@@ -1028,9 +1043,9 @@
     <!--  Senior Author  -->
 
     <form action="" method="post" class="wpur_general_settings_s_author">
-        <div class="settings_response"></div>
 
-        <h1> Senior author</h1>
+
+        <h1> Senior Author</h1>
 
         <div class="wpur_row_main">
             <div class="wpur_col">
@@ -1092,7 +1107,7 @@
                     <span class="slider"></span>
                     <span class="wpur_title_text">Page</span>
                 </label>
-                <input type="hidden" class="wpur_page_user_option_s_author" value="<?php echo $wpur_user_page ?>">
+                <input type="hidden" class="wpur_page_user_option_s_author" value="<?php echo $wpur_user_page_s_author ?>">
                 <div class="wpur_page_other_option_s_author">
                     <?php
                     $checked = get_option('wpur_user_page_edit_s_author') == 1 ? 'checked' : '';
