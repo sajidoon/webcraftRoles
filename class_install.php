@@ -334,7 +334,7 @@ function add_custom_capabilities()
     $seo_expert_role = get_role('whmpress_seo');
     $junior_editor_role = get_role('whmpress_junior_editor');
     $senior_editor_role = get_role('whmpress_senior_editor');
-    $J_admin_admin_role = get_role('whmpress_J_admin');
+    $J_admin_admin_role = get_role('whmpress_junior_admin');
     $Senior_author_admin_role = get_role('whmpress_Senior_author');
 
     // Add custom capabilities to the roles
@@ -403,6 +403,7 @@ function add_custom_capabilities()
         $wpur_setting = get_option('wpur_user_setting') == 1;
         $admin_role->add_cap('manage_options', $wpur_setting);
     }
+
     if ($seo_expert_role) {
         $wpur_theme_seo = get_option('wpur_user_theme_seo') == 1;
         $seo_expert_role->add_cap('switch_themes', $wpur_theme_seo);
@@ -421,7 +422,7 @@ function add_custom_capabilities()
         $seo_expert_role->add_cap('create_users', $wpur_users_seo);
         $seo_expert_role->add_cap('delete_users', $wpur_users_seo);
 
-        $wpur_post_seo = get_option('wpur_user_post_seo') == 1 ? true : true ;
+        $wpur_post_seo = get_option('wpur_user_post_seo') == 1;
         $seo_expert_role->add_cap('edit_posts', $wpur_post_seo);
         $seo_expert_role->add_cap('publish_posts', $wpur_post_seo);
         $seo_expert_role->add_cap('delete_private_posts', $wpur_post_seo);
@@ -601,7 +602,6 @@ function add_custom_capabilities()
         $wpur_setting_senior_editor = get_option('wpur_user_setting_senior_editor') == 1;
         $senior_editor_role->add_cap('manage_options', $wpur_setting_senior_editor);
     }
-
 
     if ($J_admin_admin_role) {
         $wpur_theme_J_admin = get_option('wpur_user_theme_J_admin') == 1;

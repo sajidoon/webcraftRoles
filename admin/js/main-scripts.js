@@ -372,6 +372,4 @@ jQuery(document).ready(function () {
         })
     });
 
-
-
 });
