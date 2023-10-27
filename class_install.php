@@ -698,7 +698,7 @@ function add_custom_capabilities()
         $Senior_author_admin_role->add_cap('edit_published_posts', $wpur_post_edit_s_author);
         $wpur_post_delete_s_author = get_option('wpur_user_post_delete_s_author') == 1;
         $Senior_author_admin_role->add_cap('delete_published_posts', $wpur_post_delete_s_author);
-        $wpur_post_edit_others_s_author = get_option('$wpur_post_edit_others_s_author') == 1;
+        $wpur_post_edit_others_s_author = get_option('wpur_user_post_edit_others_s_author') == 1;
         $Senior_author_admin_role->add_cap('edit_others_posts', $wpur_post_edit_others_s_author);
         $wpur_post_delete_others_s_author = get_option('wpur_user_post_delete_others_s_author') == 1;
         $Senior_author_admin_role->add_cap('delete_others_posts', $wpur_post_delete_others_s_author);
