@@ -54,10 +54,6 @@ If you would like to contribute to the development of this plugin, please fork t
 ### 1.0.0
 - Initial release
 
-## License
+## FREE!
 
-This plugin is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-Make sure to replace placeholders like custom-role-plugin, your-username, and update the changelog with your version history. Additionally, include relevant screenshots in the screenshots folder and update the image paths accordingly.
-
-Feel free to add or modify sections based on the specific features and requirements of your custom role WordPress plugin.
+This plugin is provided for free use without any specific license restrictions. Feel free to use, modify, and share it as needed.
