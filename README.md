@@ -1,8 +1,3 @@
-
-Creating a custom role WordPress plugin involves several steps, and a README file is crucial for providing documentation and instructions to users. Below is an example README file for a custom role WordPress plugin. Please customize it according to your specific plugin details:
-
-markdown
-Copy code
 # Custom Role WordPress Plugin
 
 ## Description
