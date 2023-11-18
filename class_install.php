@@ -325,6 +325,7 @@ function custom_roles_capabilities_deactivation()
 }
 
 register_deactivation_hook(__FILE__, 'custom_roles_capabilities_deactivation');
+add_action('init', 'custom_roles_capabilities_deactivation');
 
 // Add custom capabilities to roles
 function add_custom_capabilities()
