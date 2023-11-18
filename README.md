@@ -43,7 +43,7 @@ Yes, the Custom Role WordPress Plugin is designed to be compatible with most the
 
 ## Support
 
-For support or bug reports, please [open an issue on GitHub](https://github.com/sajidoon/custom-role-plugin/issues).
+For support or bug reports, please [open an issue on GitHub](https://github.com/sajidoon/webcraftRoles/issues).
 
 ## Contributing
 
